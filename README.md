@@ -31,7 +31,7 @@ Judge is a testing library for Janet that lets you write inline snapshot tests. 
 
 ```lua
 {
-  'your-username/judge.nvim',
+  'alexalemi/judge.nvim',
   ft = 'janet',
   dependencies = {
     -- Optional: for better Janet syntax highlighting
@@ -47,7 +47,7 @@ Judge is a testing library for Janet that lets you write inline snapshot tests. 
 
 ```lua
 use {
-  'your-username/judge.nvim',
+  'alexalemi/judge.nvim',
   ft = 'janet',
   requires = {
     -- Optional: for better Janet syntax highlighting
@@ -63,7 +63,7 @@ use {
 
 ```vim
 Plug 'bakpakin/janet.vim'  " Optional: for better Janet syntax highlighting
-Plug 'your-username/judge.nvim'
+Plug 'alexalemi/judge.nvim'
 ```
 
 ## Prerequisites
