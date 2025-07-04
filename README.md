@@ -315,4 +315,4 @@ MIT License - see LICENSE file for details.
 
 - Thanks to [Ian Henry](https://github.com/ianthehenry) for creating Judge
 - Thanks to [Calvin Rose](https://github.com/bakpakin) for creating Janet
-- Inspired by similar testing tools in other languages and editors
+- Thanks to [Claude](https://claude.ai) for writing the neovim plugin.
