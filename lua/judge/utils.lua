@@ -7,7 +7,7 @@ M.config = {
     run_file = '<leader>jf',
     run_all = '<leader>ja',
     run_line = '<leader>jl',
-    accept = '<leader>ja',
+    accept = '<leader>jA',
     interactive = '<leader>ji',
     toggle_results = '<leader>jr'
   },
