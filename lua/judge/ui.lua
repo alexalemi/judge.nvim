@@ -17,8 +17,8 @@ function M.create_results_window()
   
   if not M.results_buf or not vim.api.nvim_buf_is_valid(M.results_buf) then
     M.results_buf = vim.api.nvim_create_buf(false, true)
-    vim.api.nvim_buf_set_option(M.results_buf, 'filetype', 'judge-results')
-    vim.api.nvim_buf_set_option(M.results_buf, 'bufhidden', 'wipe')
+    vim.bo[M.results_buf].filetype = 'judge-results'
+    vim.bo[M.results_buf].bufhidden = 'wipe'
   end
   
   M.results_win = vim.api.nvim_open_win(M.results_buf, true, {
@@ -32,8 +32,8 @@ function M.create_results_window()
     title_pos = 'center'
   })
   
-  vim.api.nvim_win_set_option(M.results_win, 'wrap', false)
-  vim.api.nvim_win_set_option(M.results_win, 'cursorline', true)
+  vim.wo[M.results_win].wrap = false
+  vim.wo[M.results_win].cursorline = true
   
   local keymaps = {
     { 'n', 'q', function() M.close_results_window() end, { buffer = M.results_buf } },
@@ -123,7 +123,7 @@ function M.display_results(results)
   end
   
   vim.api.nvim_buf_set_lines(M.results_buf, 0, -1, false, lines)
-  vim.api.nvim_buf_set_option(M.results_buf, 'modifiable', false)
+  vim.bo[M.results_buf].modifiable = false
   
   local ns = vim.api.nvim_create_namespace('judge-results')
   vim.api.nvim_buf_clear_namespace(M.results_buf, ns, 0, -1)
@@ -138,8 +138,8 @@ function M.display_results(results)
 end
 
 function M.refresh_results()
-  local judge = require('judge')
-  judge.run_file()
+  -- Avoid circular dependency by calling the command directly
+  vim.cmd('JudgeRunFile')
 end
 
 function M.show_inline_results(results)
